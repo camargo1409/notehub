@@ -36,7 +36,7 @@ O NoteHub é um projeto simples e prático para criar notas coloridas!
 ## Layout
 
 <p align="center">
-  <img alt="moveIt" src=".github/main.png" width="100%">
+  <img alt="noteHub" src=".github/main.png" width="100%">
  
 
 ## :thinking: Como contribuir
