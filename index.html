@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web application for organizing notes">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Notes app, Post-it app,Kanban,Organizer">
+    <meta name="author" content="Gabriel Camargo">
+    <meta name="theme-color" content="#333333">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./css/style.css">    
+    <title>NoteHub</title>
+</head>
+<body>
+    <div id="root">
+        <aside class="sidebar">
+            <ul class="sidebar__list">
+                <li class="sidebar__list-item">
+                    <a href="" onclick="toggleColors(event)">
+                        <i data-feather="plus"></i>
+                    </a>
+                    
+                </li>
+                
+            </ul>
+            <ul class="sublist" id="menu-colors" >
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--dark-secondary);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--color1);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--color2);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--color3);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--color4);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: var(--color5);"></li>
+                <li onclick="selectColor(event)" class="sublist__item" style="background-color: pink;"></li>
+            </ul>
+        </aside>
+        <div class="brand">
+            <span class="brand__text">
+                <i data-feather="file"></i>
+            </span>
+        </div>
+        <header class="header">
+            <div class="header__container">
+                <h1 class="header__title">NoteHub</h1>
+                <a href="#" class="header__button-delete" onclick="checkDelete(event,'all')">
+                    <i data-feather="trash"></i>
+                    Delete all notes
+                </a>
+                <!-- <input placeholder="Find a note" type="text" class="header__search-bar"> -->
+            </div>
+            
+        </header>
+        <main class="main">
+            <div class="container">
+
+                <div class="notes" id="notes">
+                    <!-- The notes will be inserted via JS -->
+                </div>
+            </div>
+            <div class="saving" id="saving-status">
+                <div class="saving__icon"></div>
+                <span class="saving__text">Saving...</span>
+            </div>
+        </main>
+
+        <!-- begin note model -->
+        <div class="note hide" id="note-model" >
+            <div class="note__date"></div>
+            <div class="note__content" 
+                data-edit="" 
+                contenteditable="" 
+                oninput="handleType(event)"
+                oncontextmenu="openContextMenu(event)"
+                >
+            </div>
+            <div class="note__buttons">
+                <a href="#" class="note__button" data-delete="" onclick="checkDelete(event,'note')">
+                    <i data-feather="delete" style="pointer-events: none;"></i>
+                </a>
+            </div>
+        </div>
+        <!-- End note model -->
+    </div>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html,body{
+    height: 100%;
+}
+
+:root{
+    --dark-secondary:#3f3f3f;
+    --dark:#333333;
+    --light:#ffffff;
+    --shadow:#f1f3f8;
+    --color1:#f5972c;
+    --color2:#f3542a;
+    --color3:#7049f0;
+    --color4:#0aa4f6;
+    --color5:#c6d947;
+}
+
+#root{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: 
+    "LG NB"
+    "SB MN"
+    ;
+    grid-template-columns: 100px auto;
+    grid-template-rows: 80px auto;
+}
+
+.sidebar{
+    grid-area: SB;
+    padding: 20px;
+    -webkit-box-shadow: 2px 0px 5px 0px  var(--shadow);
+    -moz-box-shadow: 2px 0px 5px 0px var(--shadow);
+    box-shadow: 2px 0px 5px 0px var(--shadow);
+}
+
+.sidebar__list{
+    list-style: none;
+    margin-top: 50px;
+    /* background-color: #f3542a; */
+}
+.sidebar__list-item{
+    width: 100%;
+
+}
+.sidebar__list-item > a{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark);
+    color: var(--light);
+    border-radius: 50%;
+}
+.sidebar__list-item > a:hover{
+    border-radius: 40%;
+    background-color: var(--dark-secondary);
+}
+.sublist{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s linear;
+}
+
+.sublist__item{
+    padding: 8px;
+    border-radius: 50%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.header{
+    grid-area: NB;
+}
+
+.header__container{
+    overflow-x: hidden;
+    height: 100%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: #c6d947; */
+}
+.header__title{
+    font-size: x-large;
+    
+}
+.header__button-delete{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-secondary);
+    gap: 10px;
+}
+
+.brand{
+    grid-area: LG;
+    background-color: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brand__text{
+    color:var(--light);
+    font-size: x-large;
+    font-weight: bold;
+}
+.main{
+    grid-area: MN;
+    background:var(--shadow);
+    position: relative;
+    overflow-y: scroll;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.notes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top:50px;
+}
+
+.note__content{
+    flex: 1;
+    outline: none;
+}
+
+.note{
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #f3542a;
+    width: min(300px,100%);
+    min-height: 300px;
+    color: var(--light);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.note__buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+.note__button{
+    display: flex;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 10px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.show{
+    visibility: visible;
+    opacity: 1;
+}
+
+.hide{
+    display: none;
+}
+
+.saving{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+}
+.saving__text{
+    color: var(--dark-secondary);
+}
+.saving__icon{
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color1); 
+    margin-right: 10px;   
+    height: 10px;   
+    width:  10px;   
+}
+@keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
